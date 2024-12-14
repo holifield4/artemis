@@ -1,0 +1,32 @@
+.card {
+  width: 60%;
+  height: fit-content;
+  background: rgb(18, 124, 99);
+  background: linear-gradient(
+    0deg,
+    rgba(18, 124, 99, 1) 0%,
+    rgba(30, 65, 57, 1) 80%
+  );
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  color: #00ffb7;
+  font-weight: 500;
+}
+
+.content {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.description {
+  font-size: 14px;
+}
+
