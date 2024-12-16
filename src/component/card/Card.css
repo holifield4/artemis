@@ -1,11 +1,11 @@
 .card {
-  width: 60%;
+  width: 100%;
   height: fit-content;
-  background: rgb(18, 124, 99);
+  background: rgb(17, 124, 99);
   background: linear-gradient(
     0deg,
-    rgba(18, 124, 99, 1) 0%,
-    rgba(30, 65, 57, 1) 80%
+    rgba(17, 124, 99, 1) 0%,
+    rgba(30, 64, 56, 1) 80%
   );
   border-radius: 12px;
   color: #ffffff;
