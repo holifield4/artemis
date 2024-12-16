@@ -1,16 +1,30 @@
+import { useLocation } from "react-router-dom";
 import "./NavBar.css";
 
 interface NavBarItem {
-  label: string[];
+  name: string;
+  to: string;
 }
 
-const NavBarItem = ({ label }: NavBarItem) => {
+const NavBarItem = () => {
+  const location = useLocation();
+  const routes: NavBarItem[] = [
+    {name: "Dashboard", to: "/"},
+    {name: "Users", to: "/skeleton"},
+    {name: "Merchants", to: "/helloworld"},
+    {name: "Transactions", to: "/helloworld"},
+    {name: "Vouchers", to: "/helloworld"},
+    {name: "Coins", to: "/helloworld"},
+    {name: "Assets", to: "/helloworld"},
+    {name: "Settings", to: "/helloworld"},
+  ]
   return (
     <>
-      {label.map((item, index) => {
+      {routes.map((item, index) => {
+        const isActive = location.pathname === item.to;
         return (
-          <a key={index} href="/helloworld" className="navbarItem">
-            {item}
+          <a key={index} href={item.to} className={`navbarItem ${isActive ? "active" : ""}`}>
+            {item.name}
           </a>
         );
       })}

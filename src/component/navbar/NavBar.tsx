@@ -4,21 +4,10 @@ import NavBarAvatar from "./NavBarAvatar";
 import NavBarItem from "./NavBarItem";
 
 const NavBar = () => {
-  const navbarItem = [
-    "Dashboard",
-    "Users",
-    "Merchants",
-    "Transactions",
-    "Vouchers",
-    "Coins",
-    "Assets",
-    "Settings",
-  ];
-
   return (
     <>
       <nav className="navbar">
-        <NavBarItem label={navbarItem} />
+        <NavBarItem />
         <TextField placeholder="Search..." />
         <NavBarAvatar />
       </nav>
