@@ -1,11 +1,13 @@
 .footer {
     height: 2.5rem;
     width: 100%;
-    border-top: 1px solid #e3e3e3;
+    border-top: 1px solid #dadada;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
 }
 
 .footer p {
