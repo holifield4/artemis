@@ -1,24 +1,26 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./page/Dashboard";
 import NavBar from "./component/navbar/NavBar";
 import Footer from "./component/footer/Footer";
+import SkeletonPage from "./page/skeleton/SkeletonPage";
 
+const Dashboard = lazy(() => import("./page/Dashboard"));
 const HelloWorld = lazy(() => import("./page/HelloWorld"));
 
 function App() {
   return (
     <>
-      <NavBar />
       <BrowserRouter>
-        <Suspense fallback={<Dashboard />}>
+        <NavBar />
+        <Suspense fallback={<SkeletonPage />}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/skeleton" element={<SkeletonPage />} />
             <Route path="/helloworld" element={<HelloWorld />} />
           </Routes>
         </Suspense>
+        <Footer />
       </BrowserRouter>
-      <Footer/>
     </>
   );
 }
