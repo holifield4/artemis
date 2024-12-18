@@ -42,3 +42,9 @@
   background-color: #ffffff;
   color: #333;
 }
+
+@media (max-width: 576px) {
+  .button {
+    color: #ffffff;
+  }
+}
