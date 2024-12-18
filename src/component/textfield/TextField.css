@@ -15,18 +15,42 @@
 }
 
 .TextField input {
-    display: block;
     width: 100%;
-    padding: 12px;
-    font-size: 14px;
+    display: block;
     font-weight: 400;
     color: #333333;
     border: none;
     outline: none;
     box-sizing: border-box;
     border: 1px solid#dadada;
+}
+
+.TextField.hasIcon input {
     border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
     padding-inline-start: 36px;
   }
 
+  .TextField.normal {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #333333;
+  }
 
+  .TextField.normal label {
+    padding-left: 4px;
+  }
+
+.TextField.normal input {
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    padding-inline-start: 8px;
+
+}
+.TextField.normal input:focus {
+    border-color: #333333;
+}
