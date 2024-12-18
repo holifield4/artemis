@@ -8,8 +8,18 @@
     box-sizing: border-box;
     position: sticky;
     bottom: 0;
+    color: #858585;
 }
 
 .footer p {
     font-size: 12px;
+}
+
+.copyright {
+    color: #333333;
+    font-weight: 600;
+}
+
+.copyright span {
+    color: #0066FF;
 }
