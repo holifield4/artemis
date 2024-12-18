@@ -1,21 +1,29 @@
-import './Card.css';
+import "./Card.css";
 
-interface CardProps {
-    title: string;
-    content: string;
-    description: string;
+export interface CardProps {
+  data: CardData[];
 }
 
-const Card = ({title, content, description}: CardProps) => {
-    return (
-        <>
-            <div className="card">
-                <span className='title'>{title}</span>
-                <span className='content'>{content}</span>
-                <span className='description'>{description}</span>
-            </div>
-        </>
-    )
+export interface CardData {
+  title: string;
+  content: string;
+  description: string;
 }
+
+const Card = ({ data }: CardProps) => {
+  return (
+    <>
+      {data.map((item, itemIndex) => {
+        return (
+          <div key={itemIndex} className="card">
+            <span className="title">{item.title}</span>
+            <span className="content">{item.content}</span>
+            <span className="description">{item.description}</span>
+          </div>
+        );
+      })}
+    </>
+  );
+};
 
 export default Card;
