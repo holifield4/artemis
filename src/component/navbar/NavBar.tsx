@@ -8,7 +8,7 @@ const NavBar = () => {
     <>
       <nav className="navbar">
         <NavBarItem />
-        <TextField placeholder="Search..." />
+        <TextField variation="icon" placeholder="Search..." />
         <NavBarAvatar />
       </nav>
     </>

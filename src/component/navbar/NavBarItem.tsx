@@ -10,13 +10,13 @@ const NavBarItem = () => {
   const location = useLocation();
   const routes: NavBarItem[] = [
     {name: "Dashboard", to: "/"},
-    {name: "Users", to: "/skeleton"},
-    {name: "Merchants", to: "/helloworld"},
-    {name: "Transactions", to: "/helloworld"},
-    {name: "Vouchers", to: "/helloworld"},
-    {name: "Coins", to: "/helloworld"},
-    {name: "Assets", to: "/helloworld"},
-    {name: "Settings", to: "/helloworld"},
+    {name: "Users", to: "/users"},
+    {name: "Merchants", to: "/merchants"},
+    {name: "Transactions", to: "/transactions"},
+    {name: "Vouchers", to: "/voucers"},
+    {name: "Coins", to: "/coins"},
+    {name: "Assets", to: "/assets"},
+    {name: "Settings", to: "/settings"},
   ]
   return (
     <>
