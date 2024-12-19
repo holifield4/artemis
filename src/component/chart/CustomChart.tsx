@@ -75,7 +75,7 @@ const CustomChart = () => {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="justify-evenly">
+      <CardFooter className="grid grid-cols-4 gap-2.5 sm:grid-cols-6">
         <Button label="Today" />
         <Button label="Yesterday" />
         <Button label="7 days" />
