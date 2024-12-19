@@ -39,10 +39,14 @@ const Button = ({
 }: ButtonProps) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [optionsLabel, setOptinsLabel] = useState<string>(label);
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>(
-    checkedOptions as string[]
-  );
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
   
+  useEffect(() => {
+    if(checkedOptions){
+      setSelectedCheckboxes(checkedOptions)
+    }
+  },[])
+
   const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setShowOptions((prev) => !prev);
@@ -56,15 +60,18 @@ const Button = ({
     return option.value;
   };
 
+  useEffect(() => {
+    if (onChecked) {
+      onChecked(selectedCheckboxes);
+    }
+  }, [selectedCheckboxes, onChecked]);
+
   const handleCheckBoxChange = (option: ButtonCheckBoxOptions) => {
     setSelectedCheckboxes((prev) => {
       const isChecked = prev.includes(option.value);
-      const newSelected = isChecked
-        ? prev.filter((value) => value !== option.value)
-        : [...prev, option.value];
-
-      onChecked?.(newSelected);
-      return newSelected;
+      return isChecked
+      ? prev.filter((value) => value !== option.value)
+      : [...prev, option.value];
     });
   };
 
