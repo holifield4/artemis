@@ -4,6 +4,7 @@
     border-top: 1px solid #dadada;
     display: flex;
     align-items: center;
+    background-color: #fff;
     justify-content: center;
     box-sizing: border-box;
     position: sticky;
@@ -22,4 +23,10 @@
 
 .copyright span {
     color: #0066FF;
+}
+
+@media (max-width: 576px) {
+    .footer p {
+        font-size: 10px;
+    }
 }
