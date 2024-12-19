@@ -6,7 +6,7 @@ import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  { ignores: ["dist", "src/component/ui/**"] },
   {
     extends: [
       js.configs.recommended,
@@ -29,6 +29,8 @@ export default tseslint.config(
       react,
     },
     rules: {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error",
       ...reactHooks.configs.recommended.rules,
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,
