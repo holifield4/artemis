@@ -18,14 +18,15 @@ const NavBar = () => {
         <NavBarAvatar />
 
         <div className="navbarMobile">
-          <Button
-            label=""
-            icon="Bar"
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          />
-          <div className={`sidebar ${isOpen === true ? "open": "  "}`}>
+            <Button
+              label=""
+              icon="Bar"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            />
+
+          <div className={`sidebar ${isOpen === true ? "open" : "  "}`}>
             <Sidebar />
           </div>
         </div>
