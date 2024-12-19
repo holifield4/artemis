@@ -1,8 +1,58 @@
 .dashboard {
-    height: calc(100vh - 7.5rem);
-    padding: 40px;
-    box-sizing: border-box;
-    display: flex;
-    gap: 16px;
+  height: calc(100vh - 7.5rem);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
+.cards {
+  display: flex;
+  gap: 16px;
+}
+
+.cards.notVisible {
+  display: none;
+}
+
+.contents {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 16px;
+  overflow: hidden;
+}
+
+.contents > *:nth-child(1) {
+  grid-column: span 3;
+}
+
+.contents > *:nth-child(2) {
+  grid-column: span 4;
+}
+
+.contents.isFullScreen > *:nth-child(1) {
+  display: none;
+}
+.contents.isFullScreen > *:nth-child(2) {
+  grid-column: span 7;
+}
+
+@media (max-width: 576px) {
+  .dashboard {
+    height: auto;
+    min-height: 100%;
+  }
+  .cards {
+    flex-direction: column;
+  }
+  .contents {
+    height: auto;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+}

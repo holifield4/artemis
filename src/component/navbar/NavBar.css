@@ -4,6 +4,8 @@
   background-color: #333333;
   box-shadow: #333333 0 0 1px 1px;
   position: sticky;
+  z-index: 999;
+  color: #ffffff;
   top: 0;
   display: flex;
   flex-direction: row;
@@ -11,7 +13,6 @@
   gap: 32px;
   padding-right: 32px;
   padding-left: 32px;
-  box-sizing: border-box;
 }
 
 .navbarItem {
@@ -32,9 +33,15 @@
   transition-duration: 200ms;
 }
 
-.navbarItem:hover {
+.navbarItem.active,
+.navbarItem.active:hover {
   background-color: #ffffff;
   color: #333333;
+  transform: none;
+}
+
+.navbarItem:hover {
+  transform: scale(1.1);
 }
 
 .navbarAvatar {
@@ -47,6 +54,60 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.navbarSearch {
+  width: 100%;
+}
+
+.navbarMobile {
+  width: 100%;
+  height: 100%;
+  padding-left: 8px;
+  display: none;
+}
+
+.sidebar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333333;
+  z-index: 114;
+  width: 100%;
+  height: 40dvh;
+  top: -40dvh;
+  left: 0;
+  color: #ffffff;
+  transition: top 0.3s ease;
+  padding: 12px;
+  gap: 4px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: #333333 0 0 1px 1px;
+  box-sizing: border-box;
+}
+
+.sidebarItem {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 9999px;
+}
+
+.sidebarItem:hover {
+  border-bottom: 2px solid #ffffff;
+  border-radius: 0px;
+}
+
+.sidebarItem.active {
+  background-color: #ffffff;
+  color: #333333;
 }
 
 @media (max-width: 1280px) {
@@ -61,5 +122,36 @@
     padding-bottom: 4px;
     padding-left: 8px;
     padding-right: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .navbarSearch,
+  .navbarAvatar {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0px;
+  }
+
+  .navbarItem {
+    display: none;
+  }
+
+  .navbarMobile {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .sidebar.open {
+    top: 65px;
   }
 }

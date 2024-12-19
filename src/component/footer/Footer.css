@@ -1,13 +1,32 @@
 .footer {
     height: 2.5rem;
     width: 100%;
-    border-top: 1px solid #e3e3e3;
+    border-top: 1px solid #dadada;
     display: flex;
     align-items: center;
+    background-color: #fff;
     justify-content: center;
     box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
+    color: #858585;
 }
 
 .footer p {
     font-size: 12px;
+}
+
+.copyright {
+    color: #333333;
+    font-weight: 600;
+}
+
+.copyright span {
+    color: #0066FF;
+}
+
+@media (max-width: 576px) {
+    .footer p {
+        font-size: 10px;
+    }
 }

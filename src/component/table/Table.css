@@ -1,0 +1,196 @@
+/******************
+* Table Container *
+******************/
+.mainWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  gap: 12px;
+}
+
+/*************
+* Table Tabs *
+*************/
+.tableTabs {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+/******************
+* Table Wrapper *
+******************/
+.table {
+  display: flex;
+  flex: 1;
+  overflow-y: hidden;
+  border: 1px solid #dadada;
+  border-radius: 12px;
+}
+
+.tableWrapper {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+/******************
+* Table Utilities *
+******************/
+.tableHeader {
+  width: 100%;
+  border-bottom: 1px solid #dadada;
+  color: #858585;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
+.searchBar {
+  width: 30%;
+}
+
+.tableUtilities {
+  color: #333;
+  display: flex;
+  gap: 8px;
+}
+
+/********
+* Table *
+********/
+.tableWrapper table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  display: block;
+  overflow-y: auto;
+  text-transform: capitalize;
+}
+
+/********************
+* Table Head & Body *
+********************/
+.tableWrapper table thead,
+.tableWrapper table tbody {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tableWrapper table thead th,
+.tableWrapper table tbody td {
+  width: auto;
+}
+
+/****************
+* Column Header *
+****************/
+.tableWrapper thead {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+}
+
+.tableWrapper thead th {
+  padding: 12px;
+  font-weight: 500;
+}
+
+/******* 
+* Rows *
+*******/
+.tableWrapper tbody tr {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #fcfcfc,
+    #f9f9f9,
+    #f6f6f6,
+    #f6f6f6,
+    #f9f9f9,
+    #fcfcfc,
+    #ffffff
+  );
+  border-bottom: 4px solid #ffffff;
+}
+
+.tableWrapper tbody tr:hover {
+  background: none;
+  background-color: #f1f9f4;
+}
+
+.tableWrapper td {
+  padding: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.boldColumn {
+  font-weight: 600;
+}
+
+.badge {
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 12px;
+}
+
+.badge.jewelery {
+  width: fit-content;
+  background-color: #08a747;
+  color: #ffffff;
+}
+
+.badge.electronics {
+  width: fit-content;
+  background-color: #f9e9cc;
+}
+
+.badge.womensclothing {
+  width: fit-content;
+  background-color: #dff0ff;
+}
+
+.badge.mensclothing {
+  width: fit-content;
+  background-color: #e9e9e9;
+}
+
+.category,
+.actionColumn {
+  justify-items: center;
+  text-align: center;
+}
+
+/*************** 
+* Table Footer *
+***************/
+.tableFooter {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  justify-content: end;
+  font-size: 12px;
+}
+
+.tablePagination {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 4px;
+}

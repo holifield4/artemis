@@ -1,7 +1,7 @@
 const NavBarAvatar = () => {
     return (
         <div className="navbarAvatar">
-            HW
+            <span>HW</span>
         </div>
     )
 }
