@@ -92,7 +92,7 @@ export const useTableUtil = (tableData: ProductState[]) => {
   };
 
   const filteredData = tableData.filter((item) => {
-    return Object.values(item).some((value) =>
+    return Object.values(item).some((value: string) =>
       value.toString().toLowerCase().includes(searchData.toLowerCase())
     );
   });
@@ -157,7 +157,7 @@ export const useTableUtil = (tableData: ProductState[]) => {
  *
  * Options related
  */
-export const tableOptionsUtil = () => {
+export const useTableOptionsUtil = () => {
   /**
    * options button
    */
@@ -231,7 +231,7 @@ export const tableOptionsUtil = () => {
  *
  * Row related
  */
-export const tableRowUtil = () => {
+export const useTableRowUtil = () => {
   const [selectedRow, setSelectedRow] = useState<ProductState>(
     {} as ProductState
   );
@@ -242,18 +242,18 @@ export const tableRowUtil = () => {
     setSelectedRow(row);
   };
 
-  const handleActions = (actions: "detail" | "delete" | "edit") => {
+  const handleActions = async (actions: "detail" | "delete" | "edit") => {
     switch (actions) {
       case "detail": {
-        dispatch(getSingleProductAsync(selectedRow.id));
+        await dispatch(getSingleProductAsync(selectedRow.id));
         break;
       }
       case "delete": {
-        dispatch(deleteSelectedProductAsync(selectedRow.id));
+        await dispatch(deleteSelectedProductAsync(selectedRow.id));
         break;
       }
       case "edit": {
-        dispatch(editSelectedProductAsync(rowData.singleProduct));
+        await dispatch(editSelectedProductAsync(rowData.singleProduct)).catch((err) => console.error(err));
         break;
       }
       default:

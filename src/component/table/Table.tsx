@@ -7,7 +7,11 @@ import { NamingHelper } from "@/helper/NamingHelper";
 import TextField from "@/component/textfield/TextField";
 import TabsButton from "@/component/button/TabsButton";
 import ActionOptions from "./options/ActionOptions";
-import { tableOptionsUtil, tableRowUtil, useTableUtil } from "./tableUtil";
+import {
+  useTableOptionsUtil,
+  useTableRowUtil,
+  useTableUtil,
+} from "./tableUtil";
 import { SectionWrapper } from "./details/SectionWrapper";
 import { editProductField, ProductState } from "@/state/products/productSlice";
 import Loading from "../loading/Loading";
@@ -34,10 +38,10 @@ const Table = ({
   isFullScreen,
 }: TableProps) => {
   const TableUtil = useTableUtil(data);
-  const TableOptions = tableOptionsUtil();
+  const TableOptions = useTableOptionsUtil();
 
   const { handleSelectedRow, handleActions, rowData, dispatch } =
-    tableRowUtil();
+    useTableRowUtil();
 
   return (
     <>
@@ -103,7 +107,7 @@ const Table = ({
                                   >
                                     {badgeColumn === key ? (
                                       <div
-                                        className={`badge ${value
+                                        className={`badge ${String(value)
                                           .replace(/\s+/g, "")
                                           .replace(/'/g, "")
                                           .toLowerCase()}`}
@@ -145,14 +149,18 @@ const Table = ({
                                       "detail",
                                       true
                                     );
-                                    handleActions("detail");
+                                    handleActions("detail").catch((error) =>
+                                      console.error(error)
+                                    );
                                   }}
                                   onEditTransaction={() => {
                                     TableOptions.handleButtonOptions(
                                       "edit",
                                       true
                                     );
-                                    handleActions("detail");
+                                    handleActions("detail").catch((error) =>
+                                      console.error(error)
+                                    );
                                   }}
                                   onDelete={() => {
                                     /**
@@ -162,7 +170,9 @@ const Table = ({
                                       "both",
                                       false
                                     );
-                                    handleActions("delete");
+                                    handleActions("delete").catch((error) =>
+                                      console.error(error)
+                                    );
                                   }}
                                 />
                               </div>
@@ -262,7 +272,7 @@ const Table = ({
                 <div className="w-full flex justify-end">
                   <Button
                     label="Update"
-                    onClick={() => handleActions("edit")}
+                    onClick={() => void handleActions("edit")}
                   />
                 </div>
               </div>
@@ -290,7 +300,7 @@ const Table = ({
   );
 };
 
-type TableControlsProps = {
+interface TableControlsProps {
   searchData: string;
   setSearchData: Dispatch<SetStateAction<string>>;
   sortingOptions: ButtonOptions[];
@@ -299,7 +309,7 @@ type TableControlsProps = {
   viewOptions: ButtonCheckBoxOptions[];
   visibleColumn: string[];
   handleSelectedView: (selectedView: string[]) => void;
-};
+}
 function TableControls({
   searchData,
   setSearchData,
@@ -391,7 +401,7 @@ function TableHeader({ data, isFullScreen, visibleColumn }: TableHeaderProps) {
   );
 }
 
-type TableFooterProps = {
+interface TableFooterProps {
   handleRowsChange: (rows: number) => void;
   rowsPerPage: number;
   currentPage: number;
@@ -402,7 +412,7 @@ type TableFooterProps = {
   goToLastPage: () => void;
   handlePageChange: (page: number) => void;
   pageList: ButtonOptions[];
-};
+}
 function TableFooter({
   handleRowsChange,
   rowsPerPage,

@@ -55,7 +55,8 @@ const productSlice = createSlice({
         getProductsAsync.fulfilled,
         (state, action: PayloadAction<ProductState[]>) => {
           state.products = action.payload.map(
-            ({ rating, ...product }: ProductState) => product
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            ({ rating, ...product }) => product
           );
           state.isLoading = false;
         }
@@ -68,6 +69,7 @@ const productSlice = createSlice({
       .addCase(
         getSingleProductAsync.fulfilled,
         (state, action: PayloadAction<ProductState>) => {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { rating, ...product } = action.payload;
           state.singleProduct = product;
           state.isLoading = false;
@@ -147,7 +149,6 @@ export const editSelectedProductAsync = createAsyncThunk(
     const updatedProducts = state.product.products.map((product) =>
       product.id === param?.id ? { ...product, ...param } : product
     );
-    console.log(updatedProducts);
     return updatedProducts;
   }
 );

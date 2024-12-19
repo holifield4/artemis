@@ -3,7 +3,7 @@ import http from "../service-provider.service";
 export class ProductServices {
   static async getAllProducts() {
     try {
-      const url: string = "products";
+      const url = "products";
 
       const response: Promise<Response> = http.get(url);
       return await response;

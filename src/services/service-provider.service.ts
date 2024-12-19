@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 const http = axios.create({
   baseURL: "https://fakestoreapi.com/",
@@ -9,8 +9,8 @@ const http = axios.create({
   },
 });
 
-http.interceptors.response.use(function(response){
-  return response.data;
+http.interceptors.response.use(function(response: AxiosResponse){
+  return response.data as AxiosResponse;
 })  
 
 

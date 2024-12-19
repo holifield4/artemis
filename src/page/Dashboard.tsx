@@ -13,7 +13,7 @@ const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(getProductsAsync())
+    dispatch(getProductsAsync()).catch((err) => console.error(err))
   },[dispatch])
 
   return (

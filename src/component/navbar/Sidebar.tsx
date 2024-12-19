@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import "./NavBar.css";
-import { routes } from "./NavBarItem";
+import { routes } from "@/constant/constant";
 
 const Sidebar = () => {
 const location = useLocation();
