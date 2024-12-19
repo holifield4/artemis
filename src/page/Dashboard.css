@@ -41,9 +41,18 @@
   grid-column: span 7;
 }
 
-
-/* @media (max-width: 840px) {
-    .cards{
-        flex-direction: column;
-    }
-} */
+@media (max-width: 576px) {
+  .dashboard {
+    height: auto;
+    min-height: 100%;
+  }
+  .cards {
+    flex-direction: column;
+  }
+  .contents {
+    height: auto;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+}

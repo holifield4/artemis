@@ -1,42 +1,38 @@
 import CustomChart from "@/component/chart/CustomChart";
 import "./Dashboard.css";
-import Card from "@/component/card/Card";
+import Card, { CardData } from "@/component/card/Card";
 import Table from "@/component/table/Table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/state/store";
+import { getProductsAsync } from "@/state/products/productSlice";
 
 const Dashboard = () => {
   const [isTableFullScreen, setIsTableFullScreen] = useState<boolean>(false);
+  const tableData = useSelector((state: RootState) => state.product.products);
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(getProductsAsync())
+  },[dispatch])
+
   return (
     <>
       <div className="dashboard">
         <div className={`cards ${isTableFullScreen === true && "notVisible"}`}>
           <Card
-            title="Total Revenue"
-            content="$11,5237"
-            description="From last month"
-          />
-          <Card
-            title="Total Revenue"
-            content="$11,5237"
-            description="From last month"
-          />
-          <Card
-            title="Total Revenue"
-            content="$11,5237"
-            description="From last month"
-          />
-          <Card
-            title="Total Revenue"
-            content="$11,5237"
-            description="From last month"
+            data={mockData}
           />
         </div>
-        <div className={`contents ${isTableFullScreen === true && "isFullScreen"}`}>
+        <div
+          className={`contents ${isTableFullScreen === true && "isFullScreen"}`}
+        > 
           <CustomChart />
           <Table
+            data={tableData}
             title="Sales orders"
-            badgeColumn="status"
-            boldColumn="orderId"
+            badgeColumn="category"
+            boldColumn="id"
             isFullScreen={isTableFullScreen}
             onViewAll={() => setIsTableFullScreen(!isTableFullScreen)}
           />
@@ -45,5 +41,28 @@ const Dashboard = () => {
     </>
   );
 };
+
+const mockData: CardData[] = [
+  {
+    title: "Total Revenue",
+    content: "$11,5237",
+    description: "From last month",
+  },
+  {
+    title: "Total new user",
+    content: "+20",
+    description: "From last month",
+  },
+  {
+    title: "Total new merchant",
+    content: "+3",
+    description: "From last month",
+  },
+  {
+    title: "Total active user",
+    content: "+250",
+    description: "From last month",
+  },
+];
 
 export default Dashboard;
