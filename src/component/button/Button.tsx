@@ -39,14 +39,8 @@ const Button = ({
 }: ButtonProps) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [optionsLabel, setOptinsLabel] = useState<string>(label);
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>(checkedOptions!);
   
-  useEffect(() => {
-    if(checkedOptions){
-      setSelectedCheckboxes(checkedOptions)
-    }
-  },[])
-
   const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setShowOptions((prev) => !prev);
