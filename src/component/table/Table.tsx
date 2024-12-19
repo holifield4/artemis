@@ -260,12 +260,10 @@ const Table = ({
                   }
                 />
                 <div className="w-full flex justify-end">
-                  <div>
-                    <Button
-                      label="Update"
-                      onClick={() => handleActions("edit")}
-                    />
-                  </div>
+                  <Button
+                    label="Update"
+                    onClick={() => handleActions("edit")}
+                  />
                 </div>
               </div>
             </Section>
@@ -342,7 +340,7 @@ function TableControls({
           icon="Adjustment"
           checkBoxOptions={viewOptions}
           checkedOptions={visibleColumn}
-          onChecked={handleSelectedView}
+          onChecked={(e) => handleSelectedView(e)}
         />
         <Button
           label=""
