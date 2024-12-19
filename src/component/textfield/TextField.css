@@ -1,6 +1,7 @@
 .TextField {
    position: relative;
    flex: 1;
+   z-index: 1;
    color: #858585;
 }
 
